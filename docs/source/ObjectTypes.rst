@@ -1,7 +1,7 @@
 Object Types
 ============
 
-.. note:: Now updating for Qgis2threejs version 2.0.
+.. note:: Now being updated for Qgis2threejs version 2.0.
 
 * `Point Layer <#point-layer>`__
 * `Line Layer <#line-layer>`__

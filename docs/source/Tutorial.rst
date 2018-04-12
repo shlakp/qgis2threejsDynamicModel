@@ -1,7 +1,7 @@
 Tutorial
 ========
 
-.. note:: Now updating for Qgis2threejs version 2.0.
+.. note:: Now being updated for Qgis2threejs version 2.0.
 
 Let's start using Qgis2threejs plugin!
 
