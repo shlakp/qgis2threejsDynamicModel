@@ -43,7 +43,7 @@ __ http://docs.qgis.org/2.18/en/docs/user_manual/plugins/plugins_gdaltools.html#
 
 .. tip:: Do you have time to explore new high-resolution SRTM
    elevation data? You can download 1 arc-second SRTM data from
-   the `EarthExplorer`__ (User registration and login are required).
+   the `EarthExplorer`__ (User registration required).
 
 __ http://earthexplorer.usgs.gov/
 
