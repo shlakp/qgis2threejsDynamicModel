@@ -38,7 +38,7 @@ file contains a ``.hgt`` file, which is readable by the GDAL.
   .. tip:: If the area extends over two or more files, you might want to
       create a virtual mosaic using `Build Virtual Raster (Catalog)`__
       tool of GdalTools.
-__ http://docs.qgis.org/2.18/en/docs/user_manual/plugins/plugins_gdaltools.html#miscellaneous
+  __ http://docs.qgis.org/2.18/en/docs/user_manual/plugins/plugins_gdaltools.html#miscellaneous
 ..
 
 .. tip:: Do you have time to explore new high-resolution SRTM
