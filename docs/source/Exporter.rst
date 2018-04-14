@@ -9,14 +9,14 @@ Exporter
 General Scene Settings
 ----------------------
 
-World
-~~~~~
+World Settings
+~~~~~~~~~~~~~~
 
 .. image:: ./images/world_settings.png
 
 * Base size
 
-   Enter a size in 3D world that corresponds to the map canvas width. The
+   Size in 3D world that corresponds to the map canvas width. The
    default value is 100.
 
 * Vertical exaggeration
@@ -63,66 +63,61 @@ Controls
 `OrbitControls <https://raw.githubusercontent.com/minorua/Qgis2threejs/master/js/threejs/controls/OrbitControls.txt>`__ is available.
 
 
-Layer Settings
---------------
-
-DEM
-~~~
+DEM Layer Settings
+------------------
 
 You can select a DEM layer from 1-band rasters loaded in QGIS using
-``Add Raster Layer`` (GDAL provider). Selected DEM layer is used to
-calculate z positions of vector objects. You can also select a flat
+``Add Raster Layer`` (GDAL provider). You can also select a flat
 plane at zero altitude.
 
-Resampling
-^^^^^^^^^^
+Geometry
+^^^^^^^^
 
-* Simple
+* Resampling level
 
    Select a DEM resolution from several levels. This resolution is used to
    resample the DEM, but is not for texture.
 
-    * Surroundings option
+* Surroundings
 
-      This option enlarges output DEM by placing DEM blocks around the main block of the map canvas extent. Size can be selected from odd numbers in the range of 3 to 9. If you select 3, total 9 (=3x3) blocks (a center block and 8 surrounding blocks) are output. Roughening can be selected from powers of 2 in the range of 1 to 64. If you select 2, grid point spacing is doubled. It means that the number of grid points in the same area becomes 1/4. If map canvas image is selected as the display type, texture image size for each block is maximum 256 x 256.
+   This option enlarges output DEM by placing DEM blocks around the main block of the map canvas extent. Size can be selected from odd numbers in the range of 3 to 9. If you select 3, total 9 (=3x3) blocks (a center block and 8 surrounding blocks) are output. Roughening can be selected from powers of 2 in the range of 1 to 64. If you select 2, grid point spacing is doubled. It means that the number of grid points in the same area becomes 1/4. If map canvas image is selected as the display type, texture image size for each block is maximum 256 x 256.
 
-* Advanced (quad tree)
+* Clip DEM with polygon layer
 
-   Multiple resolution DEM export. Area you want to focus is output in high
-   resolution and the surroundings are output in low resolution. Draw a
-   rectangle on the map canvas to set focus area. Specifying a point is
-   also possible. The higher QuadTree height, the higher resolution of the
-   focus area. Grid size of each block is 64 x 64.
+   Clips the DEM with a polygon layer. If you have a polygon layer that
+   represents the area that elevation data exist or represents drainage basins,
+   you might want to use this option.
 
-Display type
-^^^^^^^^^^^^
 
-You can choose from map canvas image, layer image, a image file or a
-solid color.
+Material
+^^^^^^^^
 
-* Map canvas image
+* Display type
 
-   Map canvas image is used to texture the main DEM block in simple
-   resampling mode. Each block of surroundings (in simple resampling mode)
-   and quads (in advanced resampling mode) is textured with image rendered
-   with the current map settings.
+   You can choose from map canvas image, layer image, a image file or a
+   solid color.
 
-* Layer image
+   * Map canvas image
 
-   Each block is textured with image rendered with the selected layer(s).
+      Map canvas image is used to texture the main DEM block in simple
+      resampling mode. Each block of surroundings (in simple resampling mode)
+      and quads (in advanced resampling mode) is textured with image rendered
+      with the current map settings.
 
-* Image file
+   * Layer image
 
-   Texture with existing image file such as PNG and JPEG file. TIFF is not
-   supported by some browser. See `Image format
-   support <http://en.wikipedia.org/wiki/Comparison_of_web_browsers#Image_format_support>`__
-   for details.
+      Each block is textured with image rendered with the selected layer(s).
 
-* Solid color
+   * Image file
 
-   To select a color, press the button on the right side.
+      Texture with existing image file such as PNG and JPEG file. TIFF is not
+      supported by some browser. See `Image format
+      support <http://en.wikipedia.org/wiki/Comparison_of_web_browsers#Image_format_support>`__
+      for details.
 
-**Options**
+   * Solid color
+
+      To select a color, press the button on the right side.
 
 * Resolution
 
@@ -130,9 +125,9 @@ solid color.
    either ``Map canvas image`` or ``Layer image`` is selected. You can select a ratio
    to map canvas size from 100, 200 and 400 (%). Image size in pixels follows the percent.
 
-* Transparency
+* Opaciy
 
-   Sets transparency of the DEM. 0 is opaque, and 100 is transparent.
+   Sets opacity of the DEM. 100 is opaque, and 0 is transparent.
 
 * Transparent background (With map canvas image or layer image)
 
@@ -146,15 +141,9 @@ solid color.
 
    Adds a shading effect to the DEM.
 
-Clip
-^^^^
 
-Clips the DEM with a polygon layer. If you have a polygon layer that
-represents the area that elevation data exist or represents drainage basins,
-you might want to use this option.
-
-Sides and frame
-^^^^^^^^^^^^^^^
+Other Options
+^^^^^^^^^^^^^
 
 * Build sides
 
@@ -168,20 +157,9 @@ Sides and frame
    This option adds frame to the DEM. If you want to change color, please
    edit the output JS file directly.
 
-Additional DEM
-~~~~~~~~~~~~~~
 
-If you want to export more than one DEM, check the checkbox on the left
-of child item you want. For example of usage, it may be possible to
-cover the terrain with supposed terrain surface of a summit level map,
-or make a 3D heat map.
-
-Some options that are available in main DEM panel cannot be used.
-Resampling mode is limited to simple. Surroundings, sides and frame
-options are not available.
-
-Vector
-~~~~~~
+Vector Layer Settings
+---------------------
 
 Vector layers are grouped into three types: Point, Line and Polygon.
 Common settings for all vector layers:
