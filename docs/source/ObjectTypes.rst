@@ -3,9 +3,9 @@ Object Types
 
 .. note:: Now being updated for Qgis2threejs version 2.0.
 
-* `Point Layer <#point-layer>`__
-* `Line Layer <#line-layer>`__
-* `Polygon Layer <#polygon-layer>`__
+.. contents::
+   :depth: 1
+   :local:
 
 --------------
 

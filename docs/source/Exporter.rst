@@ -3,8 +3,10 @@ Exporter
 
 .. note:: Now being updated for Qgis2threejs version 2.0.
 
-.. image:: ./images/exporter1.png
+.. contents:: Contents
+   :local:
 
+.. image:: ./images/exporter1.png
 
 General Scene Settings
 ----------------------
@@ -367,7 +369,7 @@ Export to Web Dialog
 
 
 Plugin Settings
-===============
+---------------
 
 .. image:: ./images/plugin_settings.png
 
