@@ -69,8 +69,8 @@ open the project properties dialog, and then select a suitable CRS for the DEM e
 If you don't know which CRS is best suited, select the Spherical Mercator projection
 (``EPSG:3857``), which is adopted by many web maps.
 
-.. note:: In the Spherical Mercator projection, size of every feature is horizontally
-   larger than actual size except features on the equator.
+.. note:: In the Spherical Mercator projection, every feature size is horizontally
+   larger than actual size except those of features on the equator.
    At latitude 40 degrees it is enlarged 1.3 times, at 60 degrees enlarged twice.
 
 .. |CRS icon| image:: ./images/tutorial/crsicon.png
@@ -110,19 +110,13 @@ A 3D terrain object with map canvas image draped on it shows up in the preview.
   Exporting the Scene to Web
   --------------------------
   Click on the ``File - Export to Web...`` menu entry to open this dialog.
-
   .. image:: ./images/export_web.png
-
   Select a directory to export the scene and press ``Export`` button.
-
   TODO: image of files and folders
-
   You can see exported scene in web browser.
   .. image:: ./images/tutorial/browser_edge1.png
-
   No description in detail here, but you can publish the exported scene
   just by uploading the exported files to a web server.
-
   .. note:: Please do not forget to ensure that you comply with
      the Terms and use for the data before publishing the scene to the web.
 ..
@@ -138,14 +132,14 @@ render high quality graphics (e.g. Blender).
 
 __ https://en.wikipedia.org/wiki/GlTF
 
-Here we export the scene to a glTF file and load it into the ``three.js editor``__.
+Here we export the scene to a glTF file and load it into the `three.js editor`__.
 
 __ https://threejs.org/editor/
 
 Click on the ``File - Save Scene As - glTF (.gltf, .glb)`` menu entry,
 and select a filename to save the 3D model.
 
-Then, Click ``here``__ to open the three.js editor.
+Then, Click `here`__ to open the three.js editor.
 
 __ https://threejs.org/editor/
 
