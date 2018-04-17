@@ -106,29 +106,34 @@ A 3D terrain object with map canvas image draped on it shows up in the preview.
 .. |plugin icon| image:: ./images/Qgis2threejs24.png
 
 
-..
-  Exporting the Scene to Web
-  --------------------------
-  Click on the ``File - Export to Web...`` menu entry to open this dialog.
-  .. image:: ./images/export_web.png
-  Select a directory to export the scene and press ``Export`` button.
-  TODO: image of files and folders
-  You can see exported scene in web browser.
-  .. image:: ./images/tutorial/browser_edge1.png
-  No description in detail here, but you can publish the exported scene
-  just by uploading the exported files to a web server.
-  .. note:: Please do not forget to ensure that you comply with
-     the Terms and use for the data before publishing the scene to the web.
-..
+Exporting the Scene to Web
+--------------------------
+Click on the ``File - Export to Web...`` menu entry to open this dialog.
+
+.. image:: ./images/export_web.png
+
+Select a directory to export the scene and press ``Export`` button.
+
+TODO: image of files and folders
+
+You can see exported scene in web browser.
+
+.. image:: ./images/tutorial/browser_edge1.png
+
+No description in detail here, but you can publish the exported scene
+just by uploading the exported files to a web server.
+
+.. note:: Please do not forget to ensure that you comply with
+   the Terms and use for the data before publishing the scene to the web.
 
 
 Save the Scene as glTF
 ----------------------
 
-Are you satisfied with the rendering quality of Qgis2threejs web application? No? If so,
+Are you satisfied with the scene rendering of Qgis2threejs web application? No? If so,
 let's export the scene to a glTF file. The glTF (GL Transmission Format) is a file format
 for 3D scenes and models (`Wikipedia`__). You can load it to 3D graphics softwares that can
-render high quality graphics (e.g. Blender).
+render high quality graphics such as Blender.
 
 __ https://en.wikipedia.org/wiki/GlTF
 
