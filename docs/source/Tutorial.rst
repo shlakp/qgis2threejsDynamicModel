@@ -106,46 +106,51 @@ A 3D terrain object with map canvas image draped on it shows up in the preview.
 .. |plugin icon| image:: ./images/Qgis2threejs24.png
 
 
-Exporting the Scene to Web
---------------------------
-Click on the ``File - Export to Web...`` menu entry to open this dialog.
+..
+  Exporting the Scene to Web
+  --------------------------
+  Click on the ``File - Export to Web...`` menu entry to open this dialog.
 
-.. image:: ./images/export_web.png
+  .. image:: ./images/export_web.png
 
-Select a directory to export the scene and press ``Export`` button.
+  Select a directory to export the scene and press ``Export`` button.
 
-TODO: image of files and folders
+  TODO: image of files and folders
 
-You can see exported scene in web browser.
-.. image:: ./images/tutorial/browser_edge1.png
+  You can see exported scene in web browser.
+  .. image:: ./images/tutorial/browser_edge1.png
 
-No description in detail here, but you can publish the exported scene
-just by uploading the exported files to a web server.
+  No description in detail here, but you can publish the exported scene
+  just by uploading the exported files to a web server.
 
-.. note:: Please do not forget to ensure that you comply with
-   the Terms and use for the data before publishing the scene to the web.
+  .. note:: Please do not forget to ensure that you comply with
+     the Terms and use for the data before publishing the scene to the web.
+..
 
 
 Save the Scene as glTF
 ----------------------
 
-TODO: purpose
-
-glTF (GL Transmission Format) is a file format for 3D scenes and models (`Wikipedia`__).
-This file format can be read by various applications such as Blender and Paint 3D.
+Are you satisfied with the rendering quality of Qgis2threejs web application? No? If so,
+let's export the scene to a glTF file. The glTF (GL Transmission Format) is a file format
+for 3D scenes and models (`Wikipedia`__). You can load it to 3D graphics softwares that can
+render high quality graphics (e.g. Blender).
 
 __ https://en.wikipedia.org/wiki/GlTF
 
-Let's save the scene in this format and load the model file on the `three.js editor`__.
+Here we export the scene to a glTF file and load it into the ``three.js editor``__.
 
 __ https://threejs.org/editor/
 
 Click on the ``File - Save Scene As - glTF (.gltf, .glb)`` menu entry,
 and select a filename to save the 3D model.
 
-Then, open the three.js editor in your web browser. URL is https://threejs.org/editor/ .
+Then, Click ``here``__ to open the three.js editor.
 
-Click on the `File - Import` menu entry and select the ``.gltf`` file to load it to the scene.
+__ https://threejs.org/editor/
+
+Click on the ``File - Import`` menu entry and select the exported ``.gltf`` file
+to load it to the scene.
 
 As there is no light, the object looks black. Click the ``Add - DirectionalLight`` menu entry to
 add a directional light to the scene.
