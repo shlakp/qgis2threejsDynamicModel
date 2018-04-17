@@ -114,9 +114,11 @@ Click on the ``File - Export to Web...`` menu entry to open this dialog.
 
 Select a directory to export the scene and press ``Export`` button.
 
-TODO: image of files and folders
+.. image:: ./images/tutorial/exported_directory.png
 
-You can see exported scene in web browser.
+Open the .html file with a web browser. You can see exported scene in web browser.
+
+.. note:: ローカルファイルシステムにあるデータファイルを読み込むことを許さないブラウザがあります。詳細はwikiを参照して下さい。
 
 .. image:: ./images/tutorial/browser_edge1.png
 
@@ -144,6 +146,7 @@ __ https://threejs.org/editor/
 Click on the ``File - Save Scene As - glTF (.gltf, .glb)`` menu entry,
 and select a filename to save the 3D model.
 
+When the model has been saved, a message will be displayed at the top of the exporter window.
 Then, Click `here`__ to open the three.js editor.
 
 __ https://threejs.org/editor/
