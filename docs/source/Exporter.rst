@@ -14,6 +14,7 @@ General Scene Settings
 World Settings
 ~~~~~~~~~~~~~~
 
+Menu ``Scene - World Settings...``
 .. image:: ./images/world_settings.png
 
 * Base size
@@ -62,15 +63,13 @@ World Settings
 Controls
 ~~~~~~~~
 
+Menu ``Scene - Controls``
+
 `OrbitControls <https://raw.githubusercontent.com/minorua/Qgis2threejs/master/js/threejs/controls/OrbitControls.txt>`__ is available.
 
 
 DEM Layer Settings
 ------------------
-
-You can select a DEM layer from 1-band rasters loaded in QGIS using
-``Add Raster Layer`` (GDAL provider). You can also select a flat
-plane at zero altitude.
 
 Geometry
 ^^^^^^^^
@@ -82,7 +81,11 @@ Geometry
 
 * Surroundings
 
-   This option enlarges output DEM by placing DEM blocks around the main block of the map canvas extent. Size can be selected from odd numbers in the range of 3 to 9. If you select 3, total 9 (=3x3) blocks (a center block and 8 surrounding blocks) are output. Roughening can be selected from powers of 2 in the range of 1 to 64. If you select 2, grid point spacing is doubled. It means that the number of grid points in the same area becomes 1/4. If map canvas image is selected as the display type, texture image size for each block is maximum 256 x 256.
+   This option enlarges output DEM by placing DEM blocks around the main block of the map canvas extent.
+   Size can be selected from odd numbers in the range of 3 to 9. If you select 3, total 9 (=3x3) blocks
+   (a center block and 8 surrounding blocks) are output. Roughening can be selected from powers of 2 in
+   the range of 1 to 64. If you select 2, grid point spacing is doubled. It means that the number of
+   grid points in the same area becomes 1/4.
 
 * Clip DEM with polygon layer
 
@@ -101,19 +104,16 @@ Material
 
    * Map canvas image
 
-      Map canvas image is used to texture the main DEM block in simple
-      resampling mode. Each block of surroundings (in simple resampling mode)
-      and quads (in advanced resampling mode) is textured with image rendered
-      with the current map settings.
+      Render a texture image with the current map settings for each DEM block.
 
    * Layer image
 
-      Each block is textured with image rendered with the selected layer(s).
+      Render a texture image with the selected layer(s) for each DEM block.
 
    * Image file
 
-      Texture with existing image file such as PNG and JPEG file. TIFF is not
-      supported by some browser. See `Image format
+      Textures the main DEM block with existing image file such as PNG file and JPEG file.
+      TIFF is not supported by some browser. See `Image format
       support <http://en.wikipedia.org/wiki/Comparison_of_web_browsers#Image_format_support>`__
       for details.
 
@@ -149,53 +149,47 @@ Other Options
 
 * Build sides
 
-   This option adds sides and bottom to the DEM. The z position of bottom
+   This option adds sides and bottom to each DEM block. The z position of bottom
    in the 3D world is fixed. You can adjust the height of sides by changing
    the value of vertical shift option in the World panel. If you want to
-   change color, please edit the output JS file directly.
+   change color, edit the output JS file directly.
 
 * Build frame
 
-   This option adds frame to the DEM. If you want to change color, please
-   edit the output JS file directly.
+   This option adds frame to the DEM. If you want to change color, edit the output
+   JS file directly.
 
 
 Vector Layer Settings
 ---------------------
 
 Vector layers are grouped into three types: Point, Line and Polygon.
-Common settings for all vector layers:
+Common settings for all types:
 
 * Z coordinate
 
-    ``Mode`` combo box has these items:
+    Specifies object altitude above zero-level or a DEM surface.
 
-    * Z value
+    * Altitude
 
-      This item can be selected when the layer geometries have z coordinates and
-      the layer type is point or line.
+        You can use a expression to specify altitude. The unit is that of the map CRS.
+        When Z value or M value is selected, the evaluated value is added to it.
 
-    * Relative to DEM
+        * Z value
+        This item can be selected when the layer geometries have z coordinates and
+        the layer type is point or line.
 
-      `z = Elevation at vertex + addend`
+        * M value
+        This item can be selected when the layer geometries have m values and
+        the layer type is point or line.
 
-    * +"field name"
+    * Altitude Mode
 
-      `z = Elevation at vertex + field value + addend`
+        * Absolute
+        Altitude is distance above zero-level.
 
-      Only numeric fields are listed in the combo box.
-
-    * Absolute value
-
-      `z = value`
-
-    * "field name"
-
-      `z = field value + addend`
-
-      Only numeric fields are listed in the combo box.
-
-    The unit of the value is that of the map CRS.
+        * Relative to DEM layer
+        Altitude is distance above a DEM surface.
 
 * Style
 
@@ -235,7 +229,7 @@ Point
 Point layers in the project are listed as the child items. The following
 object types are available:
 
-    Sphere, Cylinder, Cone, Box, Disk, Icon, JSON model, COLLADA model
+    Sphere, Cylinder, Cone, Box, Disk
 
 See :ref:`object-types-point-layer` section in :doc:`ObjectTypes` page for each object type specific settings.
 
@@ -368,8 +362,8 @@ Export to Web Dialog
    browser.
 
 
-Plugin Settings
----------------
+Exporter Settings
+-----------------
 
 .. image:: ./images/plugin_settings.png
 
