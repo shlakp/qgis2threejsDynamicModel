@@ -5,6 +5,7 @@ Exporter
 
 .. contents:: Contents
    :local:
+   :depth: 1
 
 Window
 ------
@@ -16,14 +17,15 @@ and preview is on the right side.
 
 In this plugin, the word "export settings" means all configuration settings for a 3D scene,
 which consist of world settings, camera settings, each layer settings and so on.
-You can configure them via `Scene` menu and `Layers` panel.
+You can configure them via `Scene <#scene>`__ menu and `Layers` panel.
 
 In the `Layers` panel, each layer item has a checkbox on its left. Check the checkbox to add the layer to current scene.
 To open layer properties dialog and configure settings for the layer, double-click on the layer item or click on
 `Properties` from context menu (right click menu).
 
-Export settings are automatically saved to a ``.qto3settings`` file under the same directory as the project file if you are working with a project file.
-Later the export settings of the project will be automatically loaded into the exporter.
+Export settings are automatically saved to a ``.qto3settings`` file under the same directory
+as the project file if you are working with a project file. Later the export settings of
+the project will be automatically loaded into the exporter.
 
 If you don't want to use preview, uncheck `Preview` checkbox in the lower right corner of the window.
 For example, you might want to uncheck it to avoid waiting for updating 3D objects in the scene for each export settings update,
@@ -54,13 +56,13 @@ Scene
 ^^^^^
 
 * World Settings...
-    Opens World settings dialog. See `World Settings <#world-setttings>`__ section.
+    Opens World settings dialog. See `World Settings <#world-settings>`__ section.
 
 * Camera
-    Changes the camera. See `Camera <#camera-settings>`__ section.
+    Changes the camera. See `Camera Settings <#camera-settings>`__ section.
 
 * Controls
-    Changes the controls. See `Controls <#controls-settings>`__ section.
+    Changes the controls. See `Controls Settings <#controls-settings>`__ section.
 
 * Clear All Settings
     Clears current export settings.
@@ -69,7 +71,7 @@ Scene
     Reloads current scene.
 
 * Reset Camera Position (Shift+R)
-    Returns camera position to initial position and looks at initial direction.
+    Returns camera position to initial position and resets its view target to initial point (3D world origin).
 
 Window
 ^^^^^^
@@ -107,35 +109,36 @@ Click on ``Scene - World Settings...`` menu entry to open the dialog.
 
 .. image:: ./images/world_settings.png
 
-* Base size
+* Scale and Shift
+    * Base size
 
-   Size in 3D world that corresponds to the map canvas width. The
-   default value is 100.
+        Size in 3D world that corresponds to the map canvas width. The
+        default value is 100.
 
-* Vertical exaggeration
+    * Vertical exaggeration
 
-   Vertical exaggeration factor. This value affects terrain shape and z
-   positions of all vector 3D objects. This also affects 3D object height
-   of some object types with volume. Object types to be affected:
+        Vertical exaggeration factor. This value affects terrain shape and z
+        positions of all vector 3D objects. This also affects 3D object height
+        of some object types with volume. Object types to be affected:
 
-    | Point : Cylinder, Cube, Cone
-    | Polygon : Extruded
+         | Point : Cylinder, Cube, Cone
+         | Polygon : Extruded
 
-   3D objects of the following types have volume, but their heights aren't
-   affected by this factor:
+        3D objects of the following types have volume, but their heights aren't
+        affected by this factor:
 
-    | Point : Sphere
-    | Line : Pipe, Cone, Box
+         | Point : Sphere
+         | Line : Pipe, Cone, Box
 
-   The default value is 1.0.
+        The default value is 1.0.
 
-* Vertical shift
+    * Vertical shift
 
-   Vertical shift for all objects. If you want to export high altitude
-   and narrow area, you should adjust the object positions to be
-   displayed at the center of browser by changing this value. If you set
-   the value to -1000, all objects are shifted down by 1000 in the unit of
-   map CRS.
+        Vertical shift for all objects. If you want to export high altitude
+        and narrow area, you should adjust the object positions to be
+        displayed at the center of browser by changing this value. If you set
+        the value to -1000, all objects are shifted down by 1000 in the unit of
+        map CRS.
 
 * Background
 
