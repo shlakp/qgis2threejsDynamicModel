@@ -90,7 +90,7 @@ Zoom to a part of the DEM layer extent as the map canvas is filled by the colori
 and then click the |plugin icon| plugin icon in the web toolbar to open the Qgis2threejs exporter.
 
 There is Layers panel on the left side of the window, which lists map layers in current QGIS project.
-Layer items are grouped into DEM, Point,  Line and Polygon. DEM layer group has 1-band raster layers
+Layer items are grouped into DEM, Point, Line and Polygon. DEM layer group has 1-band raster layers
 (GDAL provider) in current QGIS project and `Flat Plane` (a flat plane at zero altitude).
 
 There is a preview on the right side. Now scene doesn't contain any 3D objects.

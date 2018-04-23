@@ -6,15 +6,96 @@ Exporter
 .. contents:: Contents
    :local:
 
+Exporter Window
+---------------
+
+When the Qgis2threejs exporter window opens first time, a layer panel is on the left side and a preview is on the right side.
+
+In the layer panel, each layer item has a checkbox on its left. Check the checkbox to add the layer to current scene.
+
+If you don't want to use preview, uncheck `Preview` checkbox in the lower right corner of the window.
+For example, you might want to uncheck it to avoid waiting for updating 3D objects in the scene for each export settings update,
+
+Export settings consist of world settings, camera settings, each layer settings and so on. They are automatically saved to
+a ``.qto3settings`` file under the same directory as the project file if you are working with a project file.
+Later the export settings of the project will be automatically loaded into the exporter.
+
 .. image:: ./images/exporter1.png
 
-General Scene Settings
-----------------------
+
+Menu
+^^^^
+
+* File
+    * Export to Web
+        Exports files necessary for publishing current scene to web. See `Export to Web Dialog <#exporttowebdialog>`__
+        section.
+
+    * Save Scene As - Image (.png)
+        Saves rendered scene image to a PNG file.
+
+    * Save Scene As - glTF (.gltf,.glb)
+        Saves 3D model of current scene in glTF format.
+
+    * Exporter Settings...
+        Opens Exporter Settings dialog. See `Exporter Settings Dialog <#exportersettings>`__
+
+    * Close Exporter
+        Closes Qgis2threejs Exporter.
+
+* Scene
+
+    * World Settings...
+        Opens World settings dialog. See `World Settings <#worldsetttings>`__ section.
+
+    * Camera
+        Switches the camera. See `Camera <#camera>`__ section.
+
+    * Controls
+
+        Switches the controls. See `Controls <#controls>`__ section.
+
+    * Clear All Settings
+        Clears current export settings such as world settings, camera settings and every layer settings.
+
+    * Reload (F5)
+        Reloads current scene.
+
+    * Reset Camera Position (Shift+R)
+        Returns camera position to initial position and looks at initial direction.
+
+* Window
+    * Panels
+        * Layers
+
+        * Console
+            Console panel displays information for debugging, mainly JavaScript side information.
+            Python side debug information is logged to log messages panel of QGIS window.
+            You can enter and execute JavaScript statements.
+
+    * Always on Top
+        Brings the exporter window to front of all other application windows.
+
+* Help
+    * Help
+        Opens the plugin document in default browser. Internet connection is required.
+
+    * Plugin Homepage
+        Opens the plugin homepage in default browser. Internet connection is required.
+
+    * Send feedback
+        Opens the plugin bug tracker in default browser. Internet connection is required.
+
+    * About Qgis2threejs Plugin
+        Displays the plugin version you are using.
+
 
 World Settings
-~~~~~~~~~~~~~~
+--------------
 
-Menu ``Scene - World Settings...``
+World settings dialog controls some basic configuration settings for current scene.
+Click on ``Scene - World Settings...`` menu entry to open the dialog.
+
 .. image:: ./images/world_settings.png
 
 * Base size
@@ -34,10 +115,10 @@ Menu ``Scene - World Settings...``
    3D objects of the following types have volume, but their heights aren't
    affected by this factor:
 
-    | Point : Sphere, JSON model, COLLADA model
+    | Point : Sphere
     | Line : Pipe, Cone, Box
 
-   The default value is 1.5.
+   The default value is 1.0.
 
 * Vertical shift
 
@@ -60,12 +141,22 @@ Menu ``Scene - World Settings...``
    `Proj4js <https://github.com/proj4js/proj4js>`__ doesn't support current
    map CRS, this option is disabled.
 
+Camera
+------
+
+Perspective Camera
+^^^^^^^^^^^^^^^^^^
+  Shows distant objects as smaller.
+
+
+Orthographic Camera
+^^^^^^^^^^^^^^^^^^^
+
+
 Controls
-~~~~~~~~
+--------
 
-Menu ``Scene - Controls``
-
-`OrbitControls <https://raw.githubusercontent.com/minorua/Qgis2threejs/master/js/threejs/controls/OrbitControls.txt>`__ is available.
+Only `OrbitControls <https://raw.githubusercontent.com/minorua/Qgis2threejs/master/js/threejs/controls/OrbitControls.txt>`__ is available.
 
 
 DEM Layer Settings
@@ -84,8 +175,8 @@ Geometry
    This option enlarges output DEM by placing DEM blocks around the main block of the map canvas extent.
    Size can be selected from odd numbers in the range of 3 to 9. If you select 3, total 9 (=3x3) blocks
    (a center block and 8 surrounding blocks) are output. Roughening can be selected from powers of 2 in
-   the range of 1 to 64. If you select 2, grid point spacing is doubled. It means that the number of
-   grid points in the same area becomes 1/4.
+   the range of 1 to 64. If you select 2, grid point spacing of each surrounding block is doubled. It
+   means that the number of grid points in the same area becomes 1/4.
 
 * Clip DEM with polygon layer
 
@@ -254,79 +345,12 @@ following object types are available:
 See :ref:`object-types-polygon-layer` section in :doc:`ObjectTypes` page for each object type specific settings.
 
 
-Menu
-----
-* File
-    * Export to Web
-        現在のシーンをWebブラウザで表示するためのファイルを出力します。
-        See `Export to Web Dialog <#exporttowebdialog>`__ section.
-
-    * Save Scene As - Image (.png)
-        現在のシーンを画像に保存します。
-
-    * Save Scene As - glTF (.gltf,.glb)
-        現在のシーンをglTF形式で保存します。
-
-    * Plugin Settings...
-        プラグインの設定ダイアログを開きます。
-
-    * Close Exporter
-        エクスポータを閉じます。
-
-* Scene
-
-    * World Settings...
-        ワールド設定ダイアログを開きます。
-
-    * Camera
-        * Perspective
-            近くのものは大きく、遠くのものは小さく見えるように表示します
-
-        * Orthographic
-
-    * Controls - Orbit
-
-    * Clear All Settings
-        現在のエクスポート設定をクリアします。
-
-    * Reload (F5)
-        ページを再読込します。
-
-    * Reset Camera Position (Shift+R)
-        カメラの位置と向きを初期状態に戻します。
-
-* Window
-    * Panels
-        * Layers
-            現在のプロジェクトに含まれるレイヤが表示されます。
-
-        * Console
-            コンソールにはデバッグのための情報が表示されます。主にJavaScript側のデバッグ情報が表示されます。
-            Python側のデバッグ情報はQGISメインウィンドウのログに表示されます。
-            JavaScriptのステートメントを入力して実行することもできます。
-
-    * Always on Top
-        ウィンドウを最前面に表示します。
-
-* Help
-    * Help
-        ドキュメントをウェブブラウザで開きます。インターネット接続が必要です。
-
-    * Plugin Homepage
-        プラグインのホームページをウェブブラウザで開きます。インターネット接続が必要です。
-
-    * Send feedback
-        プラグインのバグトラッカーをウェブブラウザで開きます。インターネット接続が必要です。
-
-    * About Qgis2threejs Plugin
-        プラグインのバージョンを表示します。
-
 Export to Web Dialog
 --------------------
 
 .. image:: ./images/export_web.png
 
-* Combo box to select a template
+* Template
 
    Select a template from available templates:
 
@@ -351,15 +375,10 @@ Export to Web Dialog
 
 * Export button
 
-   Exporting starts when you press the Run button. When the exporting has
-   been done, the exported page will be opened in web browser. At this
-   time, export settings are automatically saved to a file under the same
-   directory as the project file if you are working with a project file.
-   Later the export settings of the project will be automatically loaded
-   into the plugin.
-
-   Pressing the Help button will open the local document with default web
-   browser.
+   Exporting starts when you press the Export button. When the exporting has
+   been done and `Open exported page in web browser` option is checked, the
+   exported page is opened in default web browser (or a browser specified in
+   `Exporter Settings <#exportersettings>`__).
 
 
 Exporter Settings
