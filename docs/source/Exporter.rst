@@ -6,88 +6,97 @@ Exporter
 .. contents:: Contents
    :local:
 
-Exporter Window
----------------
+Window
+------
 
-When the Qgis2threejs exporter window opens first time, a layer panel is on the left side and a preview is on the right side.
+When the Qgis2threejs exporter window opens first time, `Layers` panel is on the left side of the window
+and preview is on the right side.
 
-In the layer panel, each layer item has a checkbox on its left. Check the checkbox to add the layer to current scene.
+.. image:: ./images/exporter1.png
+
+In this plugin, the word "export settings" means all configuration settings for a 3D scene,
+which consist of world settings, camera settings, each layer settings and so on.
+You can configure them via `Scene` menu and `Layers` panel.
+
+In the `Layers` panel, each layer item has a checkbox on its left. Check the checkbox to add the layer to current scene.
+To open layer properties dialog and configure settings for the layer, double-click on the layer item or click on
+`Properties` from context menu (right click menu).
+
+Export settings are automatically saved to a ``.qto3settings`` file under the same directory as the project file if you are working with a project file.
+Later the export settings of the project will be automatically loaded into the exporter.
 
 If you don't want to use preview, uncheck `Preview` checkbox in the lower right corner of the window.
 For example, you might want to uncheck it to avoid waiting for updating 3D objects in the scene for each export settings update,
 
-Export settings consist of world settings, camera settings, each layer settings and so on. They are automatically saved to
-a ``.qto3settings`` file under the same directory as the project file if you are working with a project file.
-Later the export settings of the project will be automatically loaded into the exporter.
-
-.. image:: ./images/exporter1.png
-
 
 Menu
+----
+
+File
 ^^^^
+* Export to Web...
+    Exports files necessary for publishing current scene to web. See `Export to Web Dialog <#export-to-web-dialog>`__
+    section.
 
-* File
-    * Export to Web
-        Exports files necessary for publishing current scene to web. See `Export to Web Dialog <#exporttowebdialog>`__
-        section.
+* Save Scene As - Image (.png)
+    Saves rendered scene image to a PNG file.
 
-    * Save Scene As - Image (.png)
-        Saves rendered scene image to a PNG file.
+* Save Scene As - glTF (.gltf,.glb)
+    Saves 3D model of current scene in glTF format.
 
-    * Save Scene As - glTF (.gltf,.glb)
-        Saves 3D model of current scene in glTF format.
+* Exporter Settings...
+    Opens Exporter Settings dialog. See `Exporter Settings Dialog <#exporter-settings>`__
 
-    * Exporter Settings...
-        Opens Exporter Settings dialog. See `Exporter Settings Dialog <#exportersettings>`__
+* Close Exporter
+    Closes Qgis2threejs Exporter.
 
-    * Close Exporter
-        Closes Qgis2threejs Exporter.
+Scene
+^^^^^
 
-* Scene
+* World Settings...
+    Opens World settings dialog. See `World Settings <#world-setttings>`__ section.
 
-    * World Settings...
-        Opens World settings dialog. See `World Settings <#worldsetttings>`__ section.
+* Camera
+    Changes the camera. See `Camera <#camera-settings>`__ section.
 
-    * Camera
-        Switches the camera. See `Camera <#camera>`__ section.
+* Controls
+    Changes the controls. See `Controls <#controls-settings>`__ section.
 
-    * Controls
+* Clear All Settings
+    Clears current export settings.
 
-        Switches the controls. See `Controls <#controls>`__ section.
+* Reload (F5)
+    Reloads current scene.
 
-    * Clear All Settings
-        Clears current export settings such as world settings, camera settings and every layer settings.
+* Reset Camera Position (Shift+R)
+    Returns camera position to initial position and looks at initial direction.
 
-    * Reload (F5)
-        Reloads current scene.
+Window
+^^^^^^
+* Panels
+    * Layers
 
-    * Reset Camera Position (Shift+R)
-        Returns camera position to initial position and looks at initial direction.
+    * Console
+        Console panel displays information for debugging, mainly JavaScript side information.
+        Python side debug information is logged to log messages panel of QGIS window.
+        You can enter and execute JavaScript statements.
 
-* Window
-    * Panels
-        * Layers
+* Always on Top
+    Brings the exporter window to front of all other application windows.
 
-        * Console
-            Console panel displays information for debugging, mainly JavaScript side information.
-            Python side debug information is logged to log messages panel of QGIS window.
-            You can enter and execute JavaScript statements.
-
-    * Always on Top
-        Brings the exporter window to front of all other application windows.
-
+Help
+^^^^
 * Help
-    * Help
-        Opens the plugin document in default browser. Internet connection is required.
+    Opens the plugin document in default browser. Internet connection is required.
 
-    * Plugin Homepage
-        Opens the plugin homepage in default browser. Internet connection is required.
+* Plugin Homepage
+    Opens the plugin homepage in default browser. Internet connection is required.
 
-    * Send feedback
-        Opens the plugin bug tracker in default browser. Internet connection is required.
+* Send feedback
+    Opens the plugin bug tracker in default browser. Internet connection is required.
 
-    * About Qgis2threejs Plugin
-        Displays the plugin version you are using.
+* About Qgis2threejs Plugin
+    Displays the plugin version you are using.
 
 
 World Settings
@@ -141,20 +150,18 @@ Click on ``Scene - World Settings...`` menu entry to open the dialog.
    `Proj4js <https://github.com/proj4js/proj4js>`__ doesn't support current
    map CRS, this option is disabled.
 
-Camera
-------
+Camera Settings
+---------------
 
-Perspective Camera
-^^^^^^^^^^^^^^^^^^
-  Shows distant objects as smaller.
-
-
-Orthographic Camera
-^^^^^^^^^^^^^^^^^^^
+* Perspective Camera
+    Shows distant objects as smaller.
 
 
-Controls
---------
+* Orthographic Camera
+
+
+Controls Settings
+-----------------
 
 Only `OrbitControls <https://raw.githubusercontent.com/minorua/Qgis2threejs/master/js/threejs/controls/OrbitControls.txt>`__ is available.
 
@@ -378,7 +385,7 @@ Export to Web Dialog
    Exporting starts when you press the Export button. When the exporting has
    been done and `Open exported page in web browser` option is checked, the
    exported page is opened in default web browser (or a browser specified in
-   `Exporter Settings <#exportersettings>`__).
+   `Exporter Settings <#exporter-settings>`__).
 
 
 Exporter Settings
