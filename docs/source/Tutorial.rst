@@ -117,7 +117,10 @@ Select a directory to export the scene and press ``Export`` button.
 
 Open the .html file with a web browser. You can see exported scene in web browser.
 
-.. note:: ローカルファイルシステムにあるデータファイルを読み込むことを許さないブラウザがあります。詳細はwikiを参照して下さい。
+.. note:: Some web browsers do not allow loading data files on local file system via Ajax.
+   Please see `Browser Support page of wiki`__ for details.
+
+__ https://github.com/minorua/Qgis2threejs/wiki/Browser-Support
 
 .. image:: ./images/tutorial/browser_edge1.png
 
